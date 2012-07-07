@@ -5,6 +5,9 @@
   , "url": "https://github.com/yuanchuan/markdown-preview"
   , "author": "yuanchuan <yuanchuan23@gmail.com> (http://yuanchuan.name)"
   , "main": "./bin/markdown-preview"
+  , "bin":  {
+      "markdown-preview": "./bin/markdown-preview"
+    }
   , "keywords": ["markdown", "markdown-preview"]
   , "dependencies": {
         "open": ">=0.0.2"
