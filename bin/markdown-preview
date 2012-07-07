@@ -1,1 +1,24 @@
+#!/usr/bin/env node
+
+var open   = require('open')
+  , path   = require('path')
+  , server = require('../lib/server')
+  , check  = require('../lib/check')
+  , port   = 3333;
+
+var filename = process.argv[2] && path.join(
+  process.cwd(), process.argv[2]
+) || '';
+
+check(filename, function(ok) {
+
+  if (ok) {
+    server.startAt(port, function(){
+      open('http://localhost:' + port +'/' + filename);  
+    }); 
+  } else {
+    console.log('Cannot open file %s.', path.basename(filename)); 
+  }
+
+});
 
