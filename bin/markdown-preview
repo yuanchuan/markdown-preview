@@ -10,15 +10,14 @@ var filename = process.argv[2] && path.join(
   process.cwd(), process.argv[2]
 ) || '';
 
-check(filename, function(ok) {
-
-  if (ok) {
+check(filename)
+  .accept(['md', 'markdown'])
+  .pass(function() {
     server.startAt(port, function(){
       open('http://localhost:' + port +'/' + filename);  
-    }); 
-  } else {
+    }) 
+  })
+  .fail(function() {
     console.log('Cannot open file %s.', path.basename(filename)); 
-  }
-
-});
+  });
 
