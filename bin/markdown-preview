@@ -2,22 +2,33 @@
 
 var open   = require('open')
   , path   = require('path')
+  , watch  = require('node-watch')
   , server = require('../lib/server')
   , check  = require('../lib/check')
+  , stamp  = require('../lib/stamp')
   , port   = 3333;
 
-var filename = process.argv[2] && path.join(
-  process.cwd(), process.argv[2]
-) || '';
+var filename = process.argv[2] 
+  && path.join(process.cwd(), process.argv[2]) 
+  || '';
 
 check(filename)
   .accept(['md', 'markdown'])
-  .pass(function() {
-    server.startAt(port, function(){
-      open('http://localhost:' + port +'/' + filename);  
+  .pass(function(name) {
+    watch(name, function() {
+      stamp.update();
+      console.log('%s changed.', name);
+    });
+    server.startAt(port, function() {
+      open('http://localhost:' + port +'/' + name);  
     }) 
   })
-  .fail(function() {
-    console.log('Cannot open file %s.', path.basename(filename)); 
+  .fail(function(name) {
+    var name = path.basename(name);
+    if (name) {
+      console.log('Cannot open file %s', name); 
+    } else {
+      console.log('Usage:  markdown-preview <filename>');
+    }
   });
 
