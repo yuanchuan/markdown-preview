@@ -8,7 +8,7 @@ var server = require('../lib/server')
   , check  = require('../lib/check')
   , stamp  = require('../lib/stamp');
 
-var filename = process.argv[2] && path.join(process.cwd(), filename)
+var filename = process.argv[2] && path.join(process.cwd(), process.argv[2])
   , port     = 3333;
 
 check(filename)
@@ -18,8 +18,9 @@ check(filename)
       stamp.update();
       console.log('%s changed.', name);
     });
-    server.startAt(port, function() {
+    server.startAt(port, function(res) {
       open('http://localhost:' + port + '/' + name);  
+      res && process.exit();
     }); 
   })
   .fail(function(name) {
