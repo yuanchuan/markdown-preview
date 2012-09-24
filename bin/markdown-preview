@@ -2,15 +2,14 @@
 
 var open   = require('open')
   , path   = require('path')
-  , watch  = require('node-watch')
-  , server = require('../lib/server')
-  , check  = require('../lib/check')
-  , stamp  = require('../lib/stamp')
-  , port   = 3333;
+  , watch  = require('node-watch');
 
-var filename = process.argv[2] 
-  && path.join(process.cwd(), process.argv[2]) 
-  || '';
+var server = require('../lib/server')
+  , check  = require('../lib/check')
+  , stamp  = require('../lib/stamp');
+
+var filename = process.argv[2] && path.join(process.cwd(), filename)
+  , port     = 3333;
 
 check(filename)
   .accept(['md', 'markdown'])
@@ -20,8 +19,8 @@ check(filename)
       console.log('%s changed.', name);
     });
     server.startAt(port, function() {
-      open('http://localhost:' + port +'/' + name);  
-    }) 
+      open('http://localhost:' + port + '/' + name);  
+    }); 
   })
   .fail(function(name) {
     var name = path.basename(name);
