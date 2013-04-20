@@ -1,8 +1,8 @@
 # markdown-preview 
-Markdown preview made easy.
+Markdown preview made easy (with live update).
 
 ### Installation
-    npm install markdown-preview -g
+    npm install -g markdown-preview 
 
 ### Usage
     markdown-preview <filename>
