@@ -2,14 +2,19 @@
 
 var open   = require('open')
   , path   = require('path')
-  , watch  = require('node-watch');
+  , watch  = require('node-watch')
+  , fs     = require('fs');
 
 var server = require('../lib/server')
   , check  = require('../lib/check')
   , stamp  = require('../lib/stamp');
 
-var filename = process.argv[2] && path.join(process.cwd(), process.argv[2])
+var filename = process.argv[2]
   , port     = 3333;
+
+if (!fs.existsSync(filename)) {
+   filename = path.join(process.cwd(), process.argv[2]);
+}
 
 check(filename)
   .accept(['md', 'markdown'])
@@ -19,16 +24,14 @@ check(filename)
       console.log('%s changed.', name);
     });
     server.startAt(port, function(res) {
-      open('http://localhost:' + port + '/' + name);  
+      open('http://localhost:' + port + '/' + name);
       res && process.exit();
-    }); 
+    });
   })
   .fail(function(name) {
-    var name = path.basename(name);
     if (name) {
-      console.log('Cannot open file %s.', name); 
+      console.log('Cannot open file %s.', name);
     } else {
       console.log('Usage:  markdown-preview <filename>');
     }
   });
-
