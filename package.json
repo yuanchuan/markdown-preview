@@ -1,23 +1,35 @@
 {
-    "name": "markdown-preview" 
-  , "version": "0.2.7"
-  , "description": "Markdown preview made easy"
-  , "url": "https://github.com/yuanchuan/markdown-preview"
-  , "author": "yuanchuan <yuanchuan23@gmail.com> (http://yuanchuan.name)"
-  , "main": "./bin/markdown-preview"
-  , "bin":  {
-      "markdown-preview": "./bin/markdown-preview"
-    }
-  , "keywords": ["markdown", "markdown-preview"]
-  , "dependencies": {
-        "open": ">=0.0.2"
-      , "showdown": ">=0.2.0"
-      , "node-watch": "*"
-      , "mime": "*"
-      
-    }
-  , "repository": {
-        "type": "git"
-      , "url": "git://github.com/yuanchuan/markdown-preview.git"
-    }
+  "name": "markdown-preview",
+  "version": "0.3.0",
+  "description": "Markdown preview made easy",
+  "url": "https://github.com/yuanchuan/markdown-preview",
+  "author": "yuanchuan <yuanchuan23@gmail.com> (http://yuanchuan.name)",
+  "main": "./bin/markdown-preview",
+  "bin": {
+    "markdown-preview": "./bin/markdown-preview"
+  },
+  "keywords": [
+    "markdown",
+    "markdown-preview",
+    "markdown preview"
+  ],
+  "dependencies": {
+    "open": ">=0.0.2",
+    "showdown": "*",
+    "node-watch": "*",
+    "mime": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yuanchuan/markdown-preview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yuanchuan/markdown-preview/issues"
+  },
+  "homepage": "https://github.com/yuanchuan/markdown-preview",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
 }
