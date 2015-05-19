@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8"/>
   <title>{{ title }}</title>
+  <style>.markdown-body {margin: 2em auto; padding: 1em; max-width: 61.8em}</style> 
   <style>{{ theme }}</style>
   <link rel="stylesheet" href="/template/highlight/styles/{{ highlight }}.css" />
   <script src="/template/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
 </head>
-<body>
-  {{ body }}
+<body> 
+  <div class="markdown-body">
+    {{ body }}
+  </div>
 </body>
 </html> 

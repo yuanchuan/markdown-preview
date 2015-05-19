@@ -14,6 +14,7 @@
     "markdown preview"
   ],
   "dependencies": {
+    "github-markdown-css": "^2.0.8",
     "mime": "*",
     "node-watch": "*",
     "open": ">=0.0.2",
