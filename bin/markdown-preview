@@ -12,7 +12,8 @@ var R = require('../lib/global');
 program
   .version('0.3.0')
   .option('-p, --port <port>', 'server port (defaults to 3333)')
-  .option('-c, --css <name>', 'use customize css file for styling');
+  .option('-c, --css <name>', 'use customize css file for styling')
+  .option('-h, --highlight <highlight>', 'set highlight style');
 
 program
   .arguments('<filename>')
@@ -22,6 +23,9 @@ program
     }
     if (program.css) {
       R.set('css', program.css);
+    }
+    if (program.highlight) {
+      R.set('highlight', program.highlight);
     }
 
     check(filename)
