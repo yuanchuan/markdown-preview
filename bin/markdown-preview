@@ -1,33 +1,50 @@
 #!/usr/bin/env node
 
-var open   = require('open')
-  , path   = require('path')
-  , watch  = require('node-watch')
-  , fs     = require('fs');
+var fs = require('fs');
+var path = require('path');
+var open = require('open');
+var program = require('commander');
+var watch  = require('node-watch');
+var server = require('../lib/server');
+var check  = require('../lib/check');
+var R = require('../lib/global');
+ 
+program
+  .version('0.3.0')
+  .option('-p, --port <port>', 'server port (defaults to 3333)')
+  .option('-c, --css <name>', 'use customize css file for styling');
 
-var server = require('../lib/server')
-  , check  = require('../lib/check')
-  , stamp  = require('../lib/stamp');
-
-var filename = process.argv[2] || ''
-  , port     = 3333;
-
-check(filename)
-  .accept(['md', 'markdown', 'html'])
-  .pass(function(name) {
-    watch(name, function() {
-      stamp.update();
-      console.log('%s changed.', name);
-    });
-    server.startAt(port, function(res) {
-      open('http://localhost:' + port + '/' + name);
-      res && process.exit();
-    });
-  })
-  .fail(function(name) {
-    if (name) {
-      console.log('Error: Please open a valid markdown file.');
-    } else {
-      console.log('Usage:  markdown-preview <filename>');
+program
+  .arguments('<filename>')
+  .action(function(filename) {
+    if (program.port) {
+      R.set('port', program.port);
     }
+    if (program.css) {
+      R.set('css', program.css);
+    }
+
+    check(filename)
+      .accept(['md', 'markdown', 'html'])
+      .pass(function(name) {
+        watch(name, function() {
+          R.set('stamp', +new Date());
+          console.log('%s changed.', name);
+        });
+
+        var port = R.get('port');
+        server.startAt(port, function(res) {
+          open('http://localhost:' + port + '/' + name);
+          res && process.exit();
+        });
+      })
+      .fail(function(name) {
+        console.log('Error: Please open a valid markdown file.');
+      });              
   });
+
+program.parse(process.argv);
+
+if (!program.args.length) {
+  program.outputHelp();
+}

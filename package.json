@@ -14,10 +14,11 @@
     "markdown preview"
   ],
   "dependencies": {
-    "open": ">=0.0.2",
-    "showdown": "*",
+    "mime": "*",
     "node-watch": "*",
-    "mime": "*"
+    "open": ">=0.0.2",
+    "redis-commands": "0.0.3",
+    "showdown": "*"
   },
   "repository": {
     "type": "git",
