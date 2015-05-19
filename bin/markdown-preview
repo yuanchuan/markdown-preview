@@ -29,7 +29,7 @@ program
     }
 
     check(filename)
-      .accept(['md', 'markdown', 'html'])
+      .accept(['md', 'markdown'])
       .pass(function(name) {
         watch(name, function() {
           R.set('stamp', +new Date());
