@@ -1,6 +1,6 @@
 {
   "name": "markdown-preview",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Markdown preview made easy",
   "url": "https://github.com/yuanchuan/markdown-preview",
   "author": "yuanchuan <yuanchuan23@gmail.com> (http://yuanchuan.name)",
@@ -15,7 +15,6 @@
   ],
   "dependencies": {
     "commander": "^2.8.1",
-    "github-markdown-css": "^2.0.8",
     "mime": "*",
     "node-watch": "*",
     "open": ">=0.0.2",
