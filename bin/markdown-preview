@@ -8,9 +8,16 @@ var watch  = require('node-watch');
 var server = require('../lib/server');
 var check  = require('../lib/check');
 var R = require('../lib/global');
+
+var options = [
+  'marked', 
+  'port', 
+  'css', 
+  'highlight'
+];
  
 program
-  .version('0.3.0')
+  .version(require('../package.json').version)
   .option('-m, --marked', 'use marked to parse markdown')
   .option('-p, --port <port>', 'server port (defaults to 3333)')
   .option('-c, --css <name>', 'use customize css file for styling')
@@ -20,19 +27,11 @@ program
   .arguments('<filename>')
   .action(function(filename) {
 
-    if (program.marked) {
-        R.set('marked', true)
-    }
-
-    if (program.port) {
-      R.set('port', program.port);
-    }
-    if (program.css) {
-      R.set('css', program.css);
-    }
-    if (program.highlight) {
-      R.set('highlight', program.highlight);
-    }
+    options.forEach(function(option) {
+      if (program[option]) {
+        R.set(option, program[option]);
+      }
+    });
 
     check(filename)
       .accept(['md', 'markdown'])
