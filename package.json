@@ -1,6 +1,6 @@
 {
   "name": "markdown-preview",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Markdown preview made easy",
   "url": "https://github.com/yuanchuan/markdown-preview",
   "author": "yuanchuan <yuanchuan23@gmail.com> (http://yuanchuan.name)",
@@ -19,7 +19,8 @@
     "node-watch": "*",
     "open": ">=0.0.2",
     "redis-commands": "0.0.3",
-    "showdown": "*"
+    "showdown": "*",
+    "marked": "0.3.5"
   },
   "repository": {
     "type": "git",

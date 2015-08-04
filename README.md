@@ -23,6 +23,7 @@ Or add an alias for it in your `.bash_profile`:
   `-V`, `--version`      output the version number  
   `-p`, `--port <port>`  server port (defaults to 3333)  
   `-c`, `--css <name>`   use customize css file for styling  
+  `-m`, `--marked`       use marked to parse markdown (defaults to showdown)  
   `-h`, `--highlight <highlight>`  set highlight style (defaults to 'github')
 
 #### Code highlight style list
