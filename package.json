@@ -10,17 +10,16 @@
   },
   "keywords": [
     "markdown",
-    "markdown-preview",
-    "markdown preview"
+    "markdown preview",
+    "markdown-preview"
   ],
   "dependencies": {
     "commander": "^2.8.1",
-    "mime": "*",
-    "node-watch": "*",
+    "marked": "0.3.5",
+    "node-watch": "^0.3.4",
     "open": ">=0.0.2",
     "redis-commands": "0.0.3",
-    "showdown": "*",
-    "marked": "0.3.5"
+    "showdown": "^1.2.2"
   },
   "repository": {
     "type": "git",
