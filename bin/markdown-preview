@@ -11,6 +11,7 @@ var R = require('../lib/global');
  
 program
   .version('0.3.0')
+  .option('-m, --marked', 'use marked to parse markdown')
   .option('-p, --port <port>', 'server port (defaults to 3333)')
   .option('-c, --css <name>', 'use customize css file for styling')
   .option('-h, --highlight <highlight>', 'set highlight style');
@@ -18,6 +19,11 @@ program
 program
   .arguments('<filename>')
   .action(function(filename) {
+
+    if (program.marked) {
+        R.set('marked', true)
+    }
+
     if (program.port) {
       R.set('port', program.port);
     }
