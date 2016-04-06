@@ -8,6 +8,8 @@ Markdown preview made easy (with live update).
 ```
 
 ### Usage
+First, start the server with a given filename to preview.
+
 ```bash
   markdown-preview <filename> [options]
 ```
@@ -16,6 +18,8 @@ Or add an alias for it in your `.bash_profile`:
 ```bash
   alias mp='markdown-preview'
 ```
+
+Next, see the preview by navigating in your browser to `http://localhost:<port>/<filename>`.
 
 ### Options
 
