@@ -26,7 +26,6 @@ program
 program
   .arguments('<filename>')
   .action(function(filename) {
-
     options.forEach(function(option) {
       if (program[option]) {
         R.set(option, program[option]);
@@ -43,7 +42,9 @@ program
 
         var port = R.get('port');
         server.startAt(port, function(res) {
-          open('http://localhost:' + port + '/' + name);
+          var url = 'http://localhost:' + port + '/' + name
+          open(url);
+          console.log('If the browser fails to launch, please open this url to preview:\n%s\n', url);
           res && process.exit();
         });
       })
