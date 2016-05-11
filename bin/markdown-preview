@@ -47,7 +47,7 @@ program
 
         server.startAt(port, function(res) {
           var url = 'http://localhost:' + port + '/' + name
-          open(url, browser, function(err, ret) {
+          open(url, browser, function(err) {
             if (err) {
               console.log(err.message);
             }

@@ -1,10 +1,10 @@
-# markdown-preview 
+# markdown-preview
 Markdown preview made easy (with live update).
 
 ### Installation
 
 ```bash
-  npm install -g markdown-preview 
+  npm install -g markdown-preview
 ```
 
 ### Usage
@@ -15,12 +15,13 @@ Markdown preview made easy (with live update).
 
 ### Options
 
-  `-h`, `--help`                   output usage information   
-  `-V`, `--version`                output the version number   
-  `-p`, `--port <port>`            server port (defaults to 3333)  
-  `-c`, `--css <name>`             use customize css file for styling  
-  `-m`, `--marked`                 use marked to parse markdown  
-  `-i`, `--highlight <highlight>`  set highlight style  
+  `-h`, `--help`                   output usage information
+  `-V`, `--version`                output the version number
+  `-p`, `--port <port>`            server port (defaults to 3333)
+  `-b`, `--port <port>`            browser name to open
+  `-c`, `--css <name>`             use customize css file for styling
+  `-m`, `--marked`                 use marked to parse markdown
+  `-i`, `--highlight <highlight>`  set highlight style
 
 
 #### Code highlight style list
