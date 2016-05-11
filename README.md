@@ -21,6 +21,7 @@ Markdown preview made easy (with live update).
   `-c`, `--css <name>`             use customize css file for styling  
   `-m`, `--marked`                 use marked to parse markdown  
   `-i`, `--highlight <highlight>`  set highlight style  
+  `-b`, `--browser <command>`      choose which browser to run
 
 
 #### Code highlight style list
