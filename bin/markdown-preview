@@ -13,7 +13,8 @@ var options = [
   'marked', 
   'port', 
   'css', 
-  'highlight'
+  'highlight',
+  'browser'
 ];
  
 program
@@ -21,7 +22,8 @@ program
   .option('-m, --marked', 'use marked to parse markdown')
   .option('-p, --port <port>', 'server port (defaults to 3333)')
   .option('-c, --css <name>', 'use customize css file for styling')
-  .option('-i, --highlight <highlight>', 'set highlight style');
+  .option('-i, --highlight <highlight>', 'set highlight style')
+  .option('-b, --browser <command>', 'choose which browser to run');
 
 program
   .arguments('<filename>')
@@ -42,8 +44,9 @@ program
 
         var port = R.get('port');
         server.startAt(port, function(res) {
-          var url = 'http://localhost:' + port + '/' + name
-          open(url);
+          var url = 'http://localhost:' + port + '/' + name;
+          var browser = R.get('browser');
+          open(url, browser);
           console.log('If the browser fails to launch, please open this url to preview:\n%s\n', url);
           res && process.exit();
         });
