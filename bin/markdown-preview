@@ -10,16 +10,18 @@ var check  = require('../lib/check');
 var R = require('../lib/global');
 
 var options = [
-  'marked', 
-  'port', 
-  'css', 
+  'marked',
+  'port',
+  'browser',
+  'css',
   'highlight'
 ];
- 
+
 program
   .version(require('../package.json').version)
   .option('-m, --marked', 'use marked to parse markdown')
   .option('-p, --port <port>', 'server port (defaults to 3333)')
+  .option('-b, --browser <browser>', 'browser name to open')
   .option('-c, --css <name>', 'use customize css file for styling')
   .option('-i, --highlight <highlight>', 'set highlight style');
 
@@ -41,16 +43,22 @@ program
         });
 
         var port = R.get('port');
+        var browser = R.get('browser');
+
         server.startAt(port, function(res) {
           var url = 'http://localhost:' + port + '/' + name
-          open(url);
-          console.log('If the browser fails to launch, please open this url to preview:\n%s\n', url);
+          open(url, browser, function(err, ret) {
+            if (err) {
+              console.log(err.message);
+            }
+            console.log('If the browser fails to launch, please open this url to preview:\n%s\n', url);
+          });;
           res && process.exit();
         });
       })
       .fail(function(name) {
         console.log('Error: Please open a valid markdown file.');
-      });              
+      });
   });
 
 program.parse(process.argv);
