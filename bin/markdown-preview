@@ -52,7 +52,7 @@ program
               console.log(err.message);
             }
             console.log('If the browser fails to launch, please open this url to preview:\n%s\n', url);
-          });;
+          });
           res && process.exit();
         });
       })
