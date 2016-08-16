@@ -10,7 +10,7 @@ var check  = require('../lib/check');
 var R = require('../lib/global');
 
 var options = [
-  'marked',
+  'parser',
   'port',
   'browser',
   'css',
@@ -19,7 +19,7 @@ var options = [
 
 program
   .version(require('../package.json').version)
-  .option('-m, --marked', 'use marked to parse markdown')
+  .option('-P, --parser <parser>', 'use markdown parser, remark | marked | showdown')
   .option('-p, --port <port>', 'server port (defaults to 3333)')
   .option('-b, --browser <browser>', 'browser name to open')
   .option('-c, --css <name>', 'use customize css file for styling')

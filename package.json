@@ -18,7 +18,11 @@
     "mime": "^1.3.4",
     "node-watch": "^0.3.5",
     "open": "^0.0.5",
-    "showdown": "^1.3.0"
+    "rehype-stringify": "^2.0.0",
+    "remark-parse": "^1.1.0",
+    "remark-rehype": "^1.0.0",
+    "showdown": "^1.3.0",
+    "unified": "^4.2.1"
   },
   "repository": {
     "type": "git",
