@@ -9,8 +9,8 @@ var server = require('../lib/server');
 var check  = require('../lib/check');
 var R = require('../lib/global');
 var parser = require('../lib/parser');
-var template = require('../lib/template')
-var getTheme = require('../lib/getTheme')
+var template = require('../lib/template');
+var getTheme = require('../lib/getTheme');
 var read = require('../lib/read');
 
 var options = [
@@ -48,8 +48,8 @@ program
             highlight: R.get('highlight') || 'default',
             theme: getTheme(R.get('css')),
             body: parser.parse(read(path.resolve(filename)))
-	  })
-	  fs.writeFileSync(program.output, out, 'utf8')
+	  });
+	  fs.writeFileSync(program.output, out, 'utf8');
 	  return
 	}
         watch(name, function() {
