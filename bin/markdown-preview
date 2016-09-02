@@ -8,13 +8,18 @@ var watch  = require('node-watch');
 var server = require('../lib/server');
 var check  = require('../lib/check');
 var R = require('../lib/global');
+var parser = require('../lib/parser');
+var template = require('../lib/template')
+var getTheme = require('../lib/getTheme')
+var read = require('../lib/read');
 
 var options = [
   'parser',
   'port',
   'browser',
   'css',
-  'highlight'
+  'highlight',
+  'output'
 ];
 
 program
@@ -23,7 +28,8 @@ program
   .option('-p, --port <port>', 'server port (defaults to 3333)')
   .option('-b, --browser <browser>', 'browser name to open')
   .option('-c, --css <name>', 'use customize css file for styling')
-  .option('-i, --highlight <highlight>', 'set highlight style');
+  .option('-i, --highlight <highlight>', 'set highlight style')
+  .option('-o, --output <filename>', 'write to file');
 
 program
   .arguments('<filename>')
@@ -37,6 +43,15 @@ program
     check(filename)
       .accept(['md', 'markdown'])
       .pass(function(name) {
+	if(program.output){
+ 	  var out = template.render({
+            highlight: R.get('highlight') || 'default',
+            theme: getTheme(R.get('css')),
+            body: parser.parse(read(path.resolve(filename)))
+	  })
+	  fs.writeFileSync(program.output, out, 'utf8')
+	  return
+	}
         watch(name, function() {
           R.set('stamp', +new Date());
           console.log('%s changed.', name);
