@@ -22,6 +22,7 @@ Markdown preview made easy (with live update).
     -b, --browser <browser>      browser name to open
     -c, --css <name>             use customize css file for styling
     -i, --highlight <highlight>  set highlight style
+    -o, --output <filename>      write to file
 
 #### Code highlight style list
   [https://github.com/isagalaev/highlight.js/tree/master/src/styles](https://github.com/isagalaev/highlight.js/tree/master/src/styles)
