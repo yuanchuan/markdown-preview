@@ -41,17 +41,17 @@ program
     });
 
     check(filename)
-      .accept(['md', 'markdown'])
+      .accept(['md', 'mkd', 'markdown'])
       .pass(function(name) {
-	if(program.output){
- 	  var out = template.render({
+        if(program.output){
+          var out = template.render({
             highlight: R.get('highlight') || 'default',
             theme: getTheme(R.get('css')),
             body: parser.parse(read(path.resolve(filename)))
-	  });
-	  fs.writeFileSync(program.output, out, 'utf8');
-	  return
-	}
+          });
+          fs.writeFileSync(program.output, out, 'utf8');
+          return
+        }
         watch(name, function() {
           R.set('stamp', +new Date());
           console.log('%s changed.', name);

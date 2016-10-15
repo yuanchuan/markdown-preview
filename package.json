@@ -1,6 +1,6 @@
 {
   "name": "markdown-preview",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "description": "Markdown preview made easy",
   "url": "https://github.com/yuanchuan/markdown-preview",
   "author": "yuanchuan <yuanchuan23@gmail.com> (http://yuanchuan.name)",
@@ -25,8 +25,8 @@
     "unified": "^4.2.1"
   },
   "repository": {
-    "type": "git",
-    "url": "git://github.com/yuanchuan/markdown-preview.git"
+    "url": "git://github.com/yuanchuan/markdown-preview.git",
+    "type": "git"
   },
   "bugs": {
     "url": "https://github.com/yuanchuan/markdown-preview/issues"
