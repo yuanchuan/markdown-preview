@@ -8,6 +8,27 @@
   <link rel="stylesheet" href="/template/highlight/styles/{{ highlight }}.css" />
   <script src="/template/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+  <style>.MathJax:focus, body :focus .MathJax { outline: none; }</style>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: [ "TeX" ],
+        linebreaks: { automatic: true },
+        EqnChunk: 10,
+        imageFont: null
+      },
+      tex2jax: {
+        inlineMath: [["$","$"],["\\(","\\)"],["\\\\(","\\\\)"]],
+        displayMath: [["$$","$$"],["\\[","\\]"]],
+        processEscapes: false
+      },
+      messageStyle: "none"
+    });
+  </script>
+  <script src="/node_modules/mathjax/MathJax.js"></script>
 </head>
 <body>
   <div class="markdown-body">
