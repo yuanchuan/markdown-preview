@@ -21,6 +21,7 @@ Markdown preview made easy (with live update).
     -p, --port <port>            server port (defaults to 3333)
     -b, --browser <browser>      browser name to open
     -c, --css <name>             use customize css file for styling
+    -w, --width <width>          limit the width of the document (defaults to 800px)
     -i, --highlight <highlight>  set highlight style
     -o, --output <filename>      write to file
 
