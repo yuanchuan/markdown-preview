@@ -18,6 +18,7 @@ var options = [
   'port',
   'browser',
   'css',
+  'width',
   'highlight',
   'output'
 ];
@@ -28,6 +29,7 @@ program
   .option('-p, --port <port>', 'server port (defaults to 3333)')
   .option('-b, --browser <browser>', 'browser name to open')
   .option('-c, --css <name>', 'use customize css file for styling')
+  .option('-w, --width <width>', 'limit the width of the document (defaults to 800px)')
   .option('-i, --highlight <highlight>', 'set highlight style')
   .option('-o, --output <filename>', 'write to file');
 
@@ -47,6 +49,7 @@ program
           var out = template.render({
             highlight: R.get('highlight') || 'default',
             theme: getTheme(R.get('css')),
+            width: R.get('width'),
             body: parser.parse(read(path.resolve(filename)))
           });
           fs.writeFileSync(program.output, out, 'utf8');
