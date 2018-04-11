@@ -23,6 +23,7 @@ Markdown preview made easy (with live update).
     -c, --css <name>             use customize css file for styling
     -w, --width <width>          limit the width of the document (defaults to 800px)
     -i, --highlight <highlight>  set highlight style
+    -t, --timeout <seconds>      exit preview if idle (defaults to 3s)
     -o, --output <filename>      write to file
 
 #### Code highlight style list

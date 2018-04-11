@@ -20,6 +20,7 @@ var options = [
   'css',
   'width',
   'highlight',
+  'timeout',
   'output'
 ];
 
@@ -31,6 +32,7 @@ program
   .option('-c, --css <name>', 'use customize css file for styling')
   .option('-w, --width <width>', 'limit the width of the document (defaults to 800px)')
   .option('-i, --highlight <highlight>', 'set highlight style')
+  .option('-t, --timeout <seconds>', 'exit preview if idle (defaults to 3s)')
   .option('-o, --output <filename>', 'write to file');
 
 program
